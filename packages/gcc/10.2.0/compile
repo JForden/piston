@@ -16,9 +16,20 @@ case "${PISTON_LANGUAGE}" in
         rename 's/.code$/\.d/' "$@" # Add .d extension
         gdc *.d
         ;;
-    fortran)
+    fortran) 
         rename 's/.code$/\.f90/' "$@" # Add .f90 extension
         gfortran *.f90
+        ;;
+    java)
+        for file in "$@"; do
+            # Rename each file from .code to .java
+            mv "${file}" "${file%.code}.java"
+        done
+
+        # Compile each renamed Java file
+        for file in "$@"; do
+            javac "${file%.code}.java"
+        done
         ;;
     *)
         echo "How did you get here? (${PISTON_LANGUAGE})"

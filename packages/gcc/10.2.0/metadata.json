@@ -15,6 +15,10 @@
             "aliases": ["gdc"]
         },
         {
+            "language": "java",
+            "aliases": ["java"]
+        },
+        {
             "language": "fortran",
             "aliases": ["fortran", "f90"]
         }
